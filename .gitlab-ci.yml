@@ -53,7 +53,7 @@ variables:
           - uv.lock
       paths:
         - $UV_CACHE_DIR
-  image: ghcr.io/astral-sh/uv:$UV_VERSION-python$DEFAULT_PYTHON-$BASE_LAYER
+  image: ghcr.io/astral-sh/uv:$UV_VERSION-python$PYTHON_VERSION-$BASE_LAYER
 
 #
 ###
