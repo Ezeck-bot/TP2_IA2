@@ -79,17 +79,17 @@ variables:
     - when: always
 
 # Build the distributables
-dist:
-  extends:
-    - .build
-    - .uv
-  script:
-    - uv build
-  artifacts:
-    name: "$CI_COMMIT_REF_NAME-dist"
-    paths:
-      - dist/*.whl
-      - dist/*.tar.gz
+#dist:
+#  extends:
+#    - .build
+#    - .uv
+#  script:
+#    - uv build
+#  artifacts:
+#    name: "$CI_COMMIT_REF_NAME-dist"
+#    paths:
+#      - dist/*.whl
+#      - dist/*.tar.gz
 
 #####
 # endregion
@@ -127,16 +127,14 @@ test:
     - .test
     - .uv
   script:
-    - uv nox -rs fulltest-${PYVERSION}
+    - uv run nox -t test
   artifacts:
     when: always
     paths:
       - build/report/coverage*
   parallel:
     matrix:
-      - PYVERSION: "3.13"
       - PYVERSION: "3.12"
-      - PYVERSION: "3.11"
   needs: []
   allow_failure: true
 
@@ -153,7 +151,7 @@ lint:
     - .test
     - .uv
   script:
-    - uvx nox -rs lint
+    - uv run nox -t lint
 
 #
 ###
@@ -182,7 +180,7 @@ coverage:
     - .report
     - .uv
   script:
-    - uv nox -rs coverage
+    - uv run nox -t report
   artifacts:
     when: always
     paths:
@@ -210,7 +208,7 @@ doc-review:
     - .release
     - .uv
   script:
-    - uv nox -rs docs
+    - uv run nox -rs docs
   environment:
     name: doc-review/$CI_COMMIT_REF_SLUG
     deployment_tier: development
@@ -231,7 +229,7 @@ pages:
     - .release
     - .uv
   script:
-    - uv nox -rs docs
+    - uv run nox -rs docs
     - mkdir public
     - mv build/sphinx/html/* public/
   environment:
