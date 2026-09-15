@@ -1,8 +1,9 @@
 .. _changelog:
 
-===========
- Changelog
-===========
+
+#########
+Changelog
+#########
 
 All releases are available in the project `releases page`_.
 
@@ -11,11 +12,10 @@ All notable changes to this project will be documented in this file.
 The format is based on `Keep a Changelog`_, and this project will adheres to
 `Semantic Versioning`_ from version 1.0 and after.
 
-.. _keep a changelog: https://keepachangelog.com/en/1.0.0/
-
 .. _releases page: https://gitlab.com/exfo/products/tandm/basecamp/sphinxexfo/-/releases
+.. _Keep a Changelog: https://keepachangelog.com/en/1.0.0/
+.. _Semantic Versioning: https://semver.org/spec/v2.0.0.html
 
-.. _semantic versioning: https://semver.org/spec/v2.0.0.html
 
 ..
     How do I make a good changelog?
@@ -50,19 +50,18 @@ The format is based on `Keep a Changelog`_, and this project will adheres to
 
     - Added a feature.
 
-.. _release-0.1:
 
 .. _release-next:
+.. _release-0.1:
 
---------------------
- 0.1 - (unreleased)
---------------------
+0.1 - (unreleased)
+==================
 
 .. admonition:: Downloads
 
     :release:`0.1`
 
 Added
-~~~~~
+-----
 
-* First version
+*   First version

@@ -13,5 +13,3 @@ def test_add_strings():
 
 def test_add_lists():
     assert add([1, 2, 3, 4], [5]) == [1, 2, 3, 4, 5]
-
-

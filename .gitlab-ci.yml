@@ -13,12 +13,7 @@
 #
 
 stages:
-  - janitor
-  - build
   - test
-  - report
-  - release
-
 sast:
   stage: test
 include:
@@ -41,7 +36,7 @@ workflow:
 
 variables:
   UV_VERSION: "0.12.7"
-  DEFAULT_PYTHON: "3.12"
+  PYTHON_VERSION: "3.12"
   BASE_LAYER: trixie-slim
   # GitLab CI creates a separate mountpoint for the build directory,
   # so we need to copy instead of using hard links.
@@ -55,9 +50,7 @@ variables:
           - uv.lock
       paths:
         - $UV_CACHE_DIR
-  variables:
-    PYTHON_VERSION: ${DEFAULT_PYTHON}
-  image: ghcr.io/astral-sh/uv:$UV_VERSION-python$PYTHON_VERSION-$BASE_LAYER
+  image: ghcr.io/astral-sh/uv:$UV_VERSION-python$DEFAULT_PYTHON-$BASE_LAYER
 
 #
 ###
@@ -131,14 +124,16 @@ test:
     - .test
     - .uv
   script:
-    - uv nox -rs fulltest-${PYTHON_VERSION}
+    - uv nox -rs fulltest-${PYVERSION}
   artifacts:
     when: always
     paths:
       - build/report/coverage*
   parallel:
     matrix:
-      - PYTHON_VERSION: ${DEFAULT_PYTHON}
+      - PYVERSION: "3.13"
+      - PYVERSION: "3.12"
+      - PYVERSION: "3.11"
   needs: []
   allow_failure: true
 
