@@ -13,7 +13,10 @@
 #
 
 stages:
+  - build
   - test
+  - report
+  - release
 sast:
   stage: test
 include:
