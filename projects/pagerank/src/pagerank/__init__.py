@@ -24,6 +24,7 @@ def run(data: Path) -> None:
             Le chemin vers le répertoire contenant le corpus de pages HTML.
 
     """
+    log.debug("Chemin vers les données %s", data)
     corpus = crawl(data)
 
     ranks_sampled = sample_pagerank(corpus, DAMPING, SAMPLES)
@@ -60,7 +61,7 @@ def crawl(directory: Path) -> dict[str, set[str]]:
 
     # Extrait tous les liens des fichiers HTML
     for filename in directory.iterdir():
-        if not filename.endswith(".html"):
+        if not filename.name.endswith(".html"):
             continue
 
         with filename.open(encoding="utf-8") as f:
