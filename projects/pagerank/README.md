@@ -19,7 +19,7 @@ PageRank Results from Iteration
   2.html: 0.4289
   3.html: 0.2202
   4.html: 0.1307
-
+```
 
 Bien commencer
 --------------
@@ -44,7 +44,7 @@ Bien commencer
     uv run pagerank
     ```
 
-*   Exécutez les script de formattages et vérification avec
+*   Exécutez les scripts de formattages et vérification avec
 
     ```shell
     uv run nox -t pagerank
