@@ -142,7 +142,7 @@ Le code qui échoue les vérifiations automatiques sera systématiquement
 pénalisés. Pour exécuter les vérifications automatiques, lancez la commande
 
 ```shell
-uv run nox -t tictactoe
+uv run nox -t pagerank
 ```
 
 Vous ne devez rien modifier d'autre dans `__init__.py` que les trois fonctions 
