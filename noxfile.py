@@ -24,7 +24,10 @@ docs_root = repo_root / "docs"
 nox.options.default_venv_backend = "uv"
 
 
-python_projects = {"tictactoe": repo_root / "projects/tictactoe"}
+python_projects = {
+    "tictactoe": repo_root / "projects/tictactoe",
+    "pagerank": repo_root / "projects/pagerank",
+}
 
 
 @nox.session(python=DEFAULT_PYTHON, tags=["lint", "py"])

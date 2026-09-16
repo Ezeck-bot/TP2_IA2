@@ -47,6 +47,7 @@ universal = true
 members = [
     "docs",
     "projects/tictactoe",
+    "projects/pagerank",
 ]
 
 [tool.uv.sources]
@@ -125,6 +126,7 @@ ignore = [
   "D401",     # First line of docstring should be in imperative mood (français)
   "CPY001",   # Missing copyright notice at top of file,
   "T201",
+  "PLC0206",
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.

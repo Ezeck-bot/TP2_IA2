@@ -1,0 +1,28 @@
+[project]
+name = "pagerank"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Charles Bouchard-Légaré", email = "charlesbouchardlegare@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.5.0",
+]
+
+[project.scripts]
+pagerank = "pagerank.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.7,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+data = { data = "src/pagerank/data" }
+
+[dependency-groups]
+dev = [
+    "coverage>=7.15.4",
+    "pytest>=9.1.1",
+]

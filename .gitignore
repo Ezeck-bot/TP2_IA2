@@ -16,3 +16,4 @@ requirements.lock
 .python-version
 .coverage
 uv.lock
+correction/

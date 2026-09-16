@@ -4,14 +4,11 @@ import importlib.resources
 import logging.config
 import sys
 import time
-from pathlib import Path
 
-import click
 import pygame
 
 import tictactoe
 import tictactoe.game
-from tictactoe.log import logging_configuration
 
 log = logging.getLogger(__name__)
 
@@ -223,38 +220,3 @@ class TicTacToeApp:
     def get_replay_button(self) -> pygame.Rect:
         """Retourne les coordonnées du bouton de fin de jeu."""
         return pygame.Rect(WIDTH / 3, HEIGHT - 65, WIDTH / 3, 50)
-
-
-@click.command()
-@click.option(
-    "-v",
-    "--verbose",
-    count=True,
-    help="Increase log level. '-v' will output INFO messages. "
-    "More than -vv is useless.",
-)
-@click.option(
-    "-q",
-    "--quiet",
-    count=True,
-    help="Reduce log level. '-q' will suppress WARNING messages. "
-    "More than -qq is useless.",
-)
-@click.option(
-    "-l",
-    "--log-file",
-    help="Reduce log level. '-q' will suppress WARNING messages. "
-    "More than -qq is useless.",
-)
-def main(verbose: int, quiet: int, log_file: str) -> None:
-    """Point d'entrée de l'application."""
-    verbosity: int = int(logging.INFO / 10) + verbose - quiet
-
-    logging.config.dictConfig(
-        logging_configuration(verbosity, Path(log_file) if log_file else None)
-    )
-
-    log.debug(verbosity)
-
-    app = TicTacToeApp()
-    app.run()

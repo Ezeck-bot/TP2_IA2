@@ -190,9 +190,9 @@ Conseils
 *   Si vous souhaitez tester vos fonctions dans un autre fichier Python, 
     vous pouvez les importer avec : `from tictactoe.game import initial_state`.
 
-    N'hésitez pas à utiliser le répertoire `test` pour ce faire! 
+    N'hésitez pas à utiliser le répertoire `test` pour ce faire ! 
 
-*   Vous êtes libre d'ajouter des fonctions auxiliaires (*helper functions*)
+*   Vous êtes libre d'ajouter des fonctions auxiliaires
     dans `game.py`, à condition que leurs noms n'entrent pas en collision
     avec les noms de fonctions ou de variables déjà existants.
 
